@@ -15,6 +15,12 @@ Install dependencies:
 task install
 ```
 
+Link SDK in consumer project with `yalc`:
+
+```shell
+task link
+```
+
 Start compilation of all projects in watch mode:
 
 ```shell

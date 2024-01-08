@@ -7,6 +7,12 @@ tasks:
       - pushd sdk && npm install && popd
       - pushd consumer && npm install && popd
 
+  link:
+    desc: Link the SDK to the consumer
+    dir: consumer
+    cmds:
+      - yalc link sdk
+
   dev:
     desc: Run the consumer and SDK in development mode
     deps:
