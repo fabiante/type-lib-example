@@ -25,6 +25,7 @@ tasks:
     watch: true
     sources:
       - src/**
+      - node_modules/**
     cmds:
       - npm run build
 
@@ -33,7 +34,9 @@ tasks:
     dir: sdk
     watch: true
     sources:
+      - tsconfig.json
       - src/**
+      - types/**
     cmds:
       - npm run build
       - yalc push
