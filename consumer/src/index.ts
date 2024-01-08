@@ -1,7 +1,11 @@
 import {hello} from "sdk";
 
 export function main() {
-    console.log(hello());
+    const x = hello();
+
+    console.log(x);
+
+    sdk.helloGlobalSDK();
 }
 
 main();
