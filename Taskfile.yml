@@ -1,0 +1,33 @@
+version: "3"
+
+tasks:
+  install:
+    desc: Install dependencies
+    cmds:
+      - pushd sdk && npm install && popd
+      - pushd consumer && npm install && popd
+
+  dev:
+    desc: Run the consumer and SDK in development mode
+    deps:
+      - dev-consumer
+      - dev-sdk
+
+  dev-consumer:
+    desc: Run the consumer in development mode
+    dir: consumer
+    watch: true
+    sources:
+      - src/**
+    cmds:
+      - npm run build
+
+  dev-sdk:
+    desc: Run the SDK in development mode
+    dir: sdk
+    watch: true
+    sources:
+      - src/**
+    cmds:
+      - npm run build
+      - yalc push

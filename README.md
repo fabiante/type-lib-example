@@ -2,30 +2,21 @@
 
 ## Usage
 
-Setup all projects:
+This project requires:
+
+- yalc
+- Taskfile
+
+---
+
+Install dependencies:
 
 ```shell
-cd sdk && npm i
-cd ../consumer && npm i
+task install
 ```
 
-Build the SDK:
+Start compilation of all projects in watch mode:
 
 ```shell
-cd sdk
-npm run build
-yalc publish
+task dev -w
 ```
-
-Build the consumer:
-
-```shell
-cd consumer
-
-# run only once
-yalc add sdk
-
-npm run build
-```
-
-Run the consumer
