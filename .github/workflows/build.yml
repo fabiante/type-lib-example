@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.0.1
+      
+      - name: Setup yalc
+        run: npm i -g yalc
+
+      - name: Build SDK
+        working-directory: sdk
+        run: npm ci && npm run build
+
+      - name: Publish SDK locally
+        working-directory: sdk
+        run: yalc publish
+
+      - name: Build consumer
+        working-directory: consumer
+        run: npm ci && yalc link sdk && npm run build
